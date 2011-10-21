@@ -52,9 +52,6 @@ _alias $git_index_alias="git_index"
 
 # Tab completion for aliases
 if [[ $shell == "zsh" ]]; then
-  # Turn on support for bash completion
-  autoload bashcompinit
-  bashcompinit
 
   # -- zsh
   compdef $git_alias=git
@@ -87,12 +84,13 @@ else
   complete -o default -o nospace -F _git_checkout $git_checkout_alias
   complete -o default -o nospace -F _git_remote   $git_remote_alias
   complete -o default -o nospace -F _git_show     $git_show_alias
+
+  complete -o nospace -o filenames -F _git_index_tab_completion git_index
+  complete -o nospace -o filenames -F _git_index_tab_completion $git_index_alias
 fi
 
 # Git repo management & aliases.
 # If you know how to rewrite _git_index_tab_completion() for zsh, please send me a pull request!
-complete -o nospace -o filenames -F _git_index_tab_completion git_index
-complete -o nospace -o filenames -F _git_index_tab_completion $git_index_alias
 
 
 # Keyboard Bindings
