@@ -17,6 +17,7 @@
 # 1 || staged,  2 || unmerged,  3 || unstaged,  4 || untracked
 # --------------------------------------------------------------------
 git_status_shortcuts() {
+  #echo "Enter status shortcut" >&2
   zsh_compat # Ensure shwordsplit is on for zsh
   git_clear_vars
   # Run ruby script, store output
@@ -45,6 +46,9 @@ git_status_shortcuts() {
   # Print status
   echo "$cmd_output" | grep -v '@@filelist@@::'
   zsh_reset # Reset zsh environment to default
+  #echo "Exit status shortcut" > ~/log.txt
+  #echo "Exit status shortcut"
+  #exit 0;
 }
 
 
